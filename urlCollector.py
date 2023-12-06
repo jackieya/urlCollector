@@ -3,10 +3,11 @@ import argparse
 import pyfiglet
 import urllib3
 from colorama import Fore
+
 urllib3.disable_warnings()
-import os
 from GoogleSpider import GoogleSpider
 from BingSpider import BingSpider
+import sys
 
 resultUrlList = []
 
@@ -14,7 +15,8 @@ resultUrlList = []
 def main():
     banner = "urlCollector"
     print(pyfiglet.figlet_format(banner))
-    parser = argparse.ArgumentParser(prog="urlCollector", description="a url Collector for major search engines.",
+    parser = argparse.ArgumentParser(prog=f"python3 {sys.argv[0]}",
+                                     description="a url Collector for major search engines.",
                                      epilog="author:Anch0r")
     parser.add_argument("-q", "--query", default="hack", help="the query keyWorld")  # 要检索的关键字
     parser.add_argument("-e", "--engine", type=str, choices=["google", "bing"], default="google",
